@@ -22,7 +22,7 @@ export function WhatsAppFloat() {
       rel="noopener noreferrer"
       aria-label="Conversar no WhatsApp"
       className={cn(
-        "group fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#1FA855] text-white shadow-lift transition-all duration-300 ease-smooth hover:scale-110 hover:bg-[#1b9a4c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1FA855] focus-visible:ring-offset-2",
+        "group fixed bottom-6 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#1FA855] text-white shadow-lift transition-all duration-300 ease-smooth hover:scale-110 hover:bg-[#1b9a4c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1FA855] focus-visible:ring-offset-2",
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-6 opacity-0",

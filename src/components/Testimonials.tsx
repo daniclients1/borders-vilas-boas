@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "./ui/Section";
 import { Container } from "./ui/Container";
@@ -23,8 +23,6 @@ function circularOffset(i: number, active: number) {
 export function Testimonials() {
   const [active, setActive] = useState(0);
   const [vw, setVw] = useState(1280);
-  const reduce = useReducedMotion();
-  const paused = useRef(false);
   const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
@@ -33,14 +31,6 @@ export function Testimonials() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
-
-  useEffect(() => {
-    if (reduce) return;
-    const id = setInterval(() => {
-      if (!paused.current) setActive((a) => (a + 1) % N);
-    }, 6000);
-    return () => clearInterval(id);
-  }, [reduce]);
 
   const compact = vw < 640;
   const W = compact ? 266 : 312;
@@ -51,7 +41,6 @@ export function Testimonials() {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
-    paused.current = true;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
@@ -59,7 +48,6 @@ export function Testimonials() {
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) go(diff > 0 ? 1 : -1);
     touchStartX.current = null;
-    paused.current = false;
   };
 
   return (
@@ -75,8 +63,6 @@ export function Testimonials() {
       <div
         className="relative mx-auto mt-12"
         style={{ height: H + 24 }}
-        onMouseEnter={() => (paused.current = true)}
-        onMouseLeave={() => (paused.current = false)}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         role="group"
@@ -107,12 +93,10 @@ export function Testimonials() {
                 x: -W / 2 + offset * spacing,
                 y: -H / 2,
                 scale: abs === 0 ? 1 : abs === 1 ? 0.84 : 0.68,
-                opacity: visible ? (abs === 0 ? 1 : abs === 1 ? 0.85 : 0.45) : 0,
-                filter:
-                  abs === 0 ? "blur(0px)" : abs === 1 ? "blur(2px)" : "blur(4px)",
+                opacity: visible ? (abs === 0 ? 1 : abs === 1 ? 0.7 : 0.35) : 0,
                 zIndex: 30 - abs,
               }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               onClick={!isCenter && visible ? () => setActive(i) : undefined}
               aria-hidden={!isCenter}
             >
@@ -165,8 +149,13 @@ export function Testimonials() {
         />
       </div>
 
+      {/* Hint de swipe — visível só em touch (sm:hidden) */}
+      <p className="mt-4 text-center text-xs text-ink/40 sm:hidden">
+        Deslize para navegar
+      </p>
+
       {/* Controles */}
-      <Container className="mt-8 flex items-center justify-center gap-4">
+      <Container className="mt-4 flex items-center justify-center gap-4 sm:mt-8">
         <button
           type="button"
           onClick={() => go(-1)}

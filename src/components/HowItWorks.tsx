@@ -34,7 +34,7 @@ export function HowItWorks() {
             className="absolute left-[12%] right-[12%] top-7 hidden h-px bg-forest-900/15 lg:block"
             aria-hidden
           />
-          <div className="grid gap-10 lg:grid-cols-4">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => {
               const Icon = icons[step.icon] ?? PawPrint;
               return (

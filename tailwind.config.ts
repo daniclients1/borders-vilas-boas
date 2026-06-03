@@ -72,9 +72,14 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        marqueeReverse: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         marquee: "marquee 45s linear infinite",
+        "marquee-reverse": "marqueeReverse 45s linear infinite",
       },
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.22, 1, 0.36, 1)",

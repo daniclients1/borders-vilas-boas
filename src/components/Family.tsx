@@ -44,10 +44,10 @@ export function Family() {
               </div>
             </Reveal>
             <Reveal delay={0.15}>
-              <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-forest-900/10 pt-8">
+              <dl className="mt-10 grid grid-cols-3 gap-3 sm:gap-6 border-t border-forest-900/10 pt-8">
                 {stats.map((s) => (
                   <div key={s.v}>
-                    <dt className="font-display text-2xl text-forest-800">
+                    <dt className="font-display text-lg sm:text-2xl text-forest-800">
                       {s.count != null ? (
                         <Counter to={s.count} suffix={s.suffix ?? ""} />
                       ) : (

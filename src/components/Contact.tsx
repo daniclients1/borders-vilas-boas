@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowUpRight } from "lucide-react";
 import { InstagramIcon } from "./InstagramIcon";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { site, waLink } from "@/lib/site";
@@ -45,54 +45,65 @@ export function Contact() {
               apresentar nossos cães e tirar todas as suas dúvidas.
             </p>
 
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 divide-y divide-cream-50/8">
+              {/* WhatsApp */}
               <a
                 href={waLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-cream-50/10 transition-colors hover:bg-white/10"
+                className="group flex items-center gap-4 py-5 transition-opacity hover:opacity-80"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-[#1FA855] text-white">
-                  <WhatsAppIcon className="h-5 w-5" />
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#1FA855]">
+                  <WhatsAppIcon className="h-5 w-5 text-white" />
                 </span>
-                <span>
-                  <span className="block text-xs uppercase tracking-widest2 text-cream-100/60">
+                <div className="flex-1">
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-widest2 text-sage-400">
                     WhatsApp
                   </span>
-                  <span className="font-semibold text-cream-50">
+                  <span className="block font-semibold text-cream-50">
                     {site.whatsapp.display}
                   </span>
-                </span>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-cream-50/30 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-cream-50/70" />
               </a>
 
+              {/* Instagram — gradiente oficial no fundo, ícone branco */}
               <a
                 href={site.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-cream-50/10 transition-colors hover:bg-white/10"
+                className="group flex items-center gap-4 py-5 transition-opacity hover:opacity-80"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10">
-                  <InstagramIcon className="h-6 w-6" branded />
+                <span
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #833AB4 0%, #C13584 35%, #FD1D1D 70%, #FCAF45 100%)",
+                  }}
+                >
+                  <InstagramIcon className="h-5 w-5 text-white" />
                 </span>
-                <span>
-                  <span className="block text-xs uppercase tracking-widest2 text-cream-100/60">
+                <div className="flex-1">
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-widest2 text-sage-400">
                     Instagram
                   </span>
-                  <span className="font-semibold text-cream-50">
+                  <span className="block font-semibold text-cream-50">
                     {site.instagram.handle}
                   </span>
-                </span>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-cream-50/30 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-cream-50/70" />
               </a>
 
-              <div className="flex items-center gap-4 p-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-sage-300">
-                  <MapPin className="h-5 w-5" />
+              {/* Endereço */}
+              <div className="flex items-start gap-4 py-5">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-sage-700/60">
+                  <MapPin className="h-5 w-5 text-sage-300" />
                 </span>
-                <span>
-                  <span className="block text-xs uppercase tracking-widest2 text-cream-100/60">
+                <div>
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-widest2 text-sage-400">
                     Endereço
                   </span>
-                  <span className="font-semibold text-cream-50">
+                  <span className="block font-semibold text-cream-50">
                     {site.address.street}
                   </span>
                   <span className="block text-sm text-cream-100/70">
@@ -101,7 +112,7 @@ export function Contact() {
                   <span className="block text-sm text-cream-100/50">
                     {site.address.zip}
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -165,15 +176,17 @@ export function Contact() {
         {/* Google Maps */}
         <Reveal>
           <div className="mt-14 overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-cream-50/10">
-            <iframe
-              title="Localização Borders Vilas Boas"
-              src={`https://maps.google.com/maps?q=${site.address.mapsQuery}&hl=pt-BR&z=15&output=embed`}
-              width="100%"
-              height="380"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="block border-0"
-            />
+            <div className="h-64 sm:h-96">
+              <iframe
+                title="Localização Borders Vilas Boas"
+                src={`https://maps.google.com/maps?q=${site.address.mapsQuery}&hl=pt-BR&z=15&output=embed`}
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block border-0"
+              />
+            </div>
           </div>
         </Reveal>
       </Container>

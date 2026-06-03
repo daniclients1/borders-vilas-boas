@@ -4,6 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Container } from "./ui/Container";
 import { Photo } from "./ui/Photo";
+import { Button } from "./ui/Button";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import { waLink } from "@/lib/site";
 
 /**
  * Para ativar o vídeo: coloque o arquivo em /public/hero.mp4
@@ -31,7 +34,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[92vh] w-full items-center justify-center overflow-hidden"
+      className="relative flex min-h-[85vh] w-full items-center justify-center overflow-hidden sm:min-h-[92vh]"
     >
       {/* Fundo: vídeo em loop (substitui o placeholder quando o arquivo existir) */}
       <div className="absolute inset-0">
@@ -87,16 +90,19 @@ export function Hero() {
           >
             Pedigree, saúde e muito carinho — no coração de Santa Catarina
           </motion.p>
+          <motion.div variants={item} className="mt-8 sm:hidden">
+            <Button
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="whatsapp"
+              size="lg"
+            >
+              <WhatsAppIcon className="h-5 w-5" /> Ver filhotes disponíveis
+            </Button>
+          </motion.div>
         </motion.div>
       </Container>
-
-      <a
-        href="#sobre"
-        aria-label="Rolar para a próxima seção"
-        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-cream-50/60 transition-colors hover:text-cream-50"
-      >
-        <ChevronDown className="h-7 w-7 animate-bounce" />
-      </a>
 
       {/* Curva SVG suave — transição do hero para a seção clara */}
       <div className="absolute inset-x-0 bottom-0 z-10">
@@ -113,6 +119,15 @@ export function Hero() {
           />
         </svg>
       </div>
+
+      <a
+        href="#sobre"
+        aria-label="Rolar para a próxima seção"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-cream-50/60 transition-colors hover:text-cream-50"
+      >
+        <ChevronDown className="h-7 w-7 animate-bounce" />
+      </a>
+
     </section>
   );
 }
