@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-forest-800;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: theme("colors.sage.300");
+    color: theme("colors.forest.900");
+  }
+
+  /* Acessibilidade: foco visível e consistente para navegação por teclado. */
+  :focus-visible {
+    outline: 2px solid theme("colors.forest.700");
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Respeita quem prefere menos movimento (WCAG 2.3.3). */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest2 text-sage-600;
+  }
+
+  /* Brilho do skeleton de carregamento — evita CLS quando as fotos chegarem. */
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer 1.8s infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Fundo "papel" sutil com toques de sálvia e caramelo. */
+  .paper {
+    background-image:
+      radial-gradient(
+        55rem 55rem at 85% -10%,
+        rgba(154, 172, 126, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        45rem 38rem at -10% 8%,
+        rgba(194, 154, 87, 0.1),
+        transparent 55%
+      );
+  }
+}
