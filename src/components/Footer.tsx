@@ -70,9 +70,12 @@ export function Footer() {
                   {site.instagram.handle}
                 </a>
               </li>
-              <li className="inline-flex items-center gap-3 text-sm text-cream-100/75">
-                <MapPin className="h-4 w-4 text-sage-300" />
-                {site.location}
+              <li className="flex items-start gap-3 text-sm text-cream-100/75">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage-300" />
+                <span>
+                  <span className="block">{site.address.street}</span>
+                  <span className="block opacity-75">{site.address.neighborhood} — {site.address.city}</span>
+                </span>
               </li>
             </ul>
           </div>

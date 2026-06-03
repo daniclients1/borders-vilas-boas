@@ -6,11 +6,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
+// Serifa orgânica — títulos do site e do hero (mesma família do logo)
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "900"],
   style: ["normal", "italic"],
 });
 
@@ -33,13 +34,30 @@ export const metadata: Metadata = {
     "canil Border Collie",
     "Border Collie com pedigree",
     "Borders Vilas Boas",
+    "canil Florianópolis",
+    "Border Collie Santa Catarina",
   ],
   openGraph: {
     type: "website",
     locale: "pt_BR",
+    url: "https://www.bordersvilasboas.com.br",
     title: `${site.name} — Canil de Border Collies`,
     description: site.description,
     siteName: site.name,
+    images: [
+      {
+        url: "/bordercollielogo.jpeg",
+        width: 500,
+        height: 500,
+        alt: "Borders Vilas Boas — Canil de Border Collies",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${site.name} — Canil de Border Collies`,
+    description: site.description,
+    images: ["/bordercollielogo.jpeg"],
   },
   robots: { index: true, follow: true },
 };

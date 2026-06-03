@@ -1,4 +1,4 @@
-import { PawPrint } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "./ui/Reveal";
 import { ZoomReveal } from "./ui/ZoomReveal";
 import { Counter } from "./ui/Counter";
@@ -66,20 +66,23 @@ export function Family() {
 
         <div className="relative order-1 min-h-[56vh] overflow-hidden lg:order-2 lg:min-h-[640px]">
           <ZoomReveal className="absolute inset-0">
-            <img
+            <Image
               src="/familia.jpg"
               alt="Família com Border Collie da Borders Vilas Boas"
-              className="h-full w-full object-cover [object-position:50%_25%]"
+              fill
+              className="object-cover [object-position:50%_25%]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </ZoomReveal>
-          <div className="absolute bottom-6 right-6 max-w-[17rem] rounded-3xl border border-white/10 bg-forest-900/80 p-6 shadow-lift backdrop-blur-md sm:bottom-8 sm:right-8">
-            <PawPrint className="h-5 w-5 text-sage-300" />
-            <p className="mt-3 font-display text-lg italic leading-snug text-cream-50">
-              &ldquo;Aqui cada filhote nasce cercado de gente que ama.&rdquo;
-            </p>
-            <span className="mt-3 block text-xs font-semibold uppercase tracking-widest2 text-sage-300/80">
-              Borders Vilas Boas
-            </span>
+          {/* Logo flutuante no canto */}
+          <div className="absolute bottom-6 right-6 overflow-hidden rounded-full shadow-lift ring-2 ring-white/20 backdrop-blur-sm">
+            <Image
+              src="/bordercollielogo.jpeg"
+              alt="Borders Vilas Boas"
+              width={96}
+              height={96}
+              className="h-24 w-24 object-cover"
+            />
           </div>
         </div>
       </div>

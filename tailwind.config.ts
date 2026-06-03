@@ -68,32 +68,13 @@ const config: Config = {
         widest2: "0.22em",
       },
       keyframes: {
-        shimmer: {
-          "100%": { transform: "translateX(100%)" },
-        },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        kenburns: {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.08)" },
-        },
       },
       animation: {
-        shimmer: "shimmer 1.8s infinite",
-        "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
-        float: "float 6s ease-in-out infinite",
         marquee: "marquee 45s linear infinite",
-        kenburns: "kenburns 18s ease-in-out infinite alternate",
       },
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.22, 1, 0.36, 1)",

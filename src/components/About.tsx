@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PawPrint } from "lucide-react";
 import { Reveal } from "./ui/Reveal";
 import { ZoomReveal } from "./ui/ZoomReveal";
@@ -10,10 +11,13 @@ export function About() {
         {/* Imagem sangra até a borda esquerda */}
         <div className="relative min-h-[56vh] overflow-hidden lg:min-h-[640px]">
           <ZoomReveal className="absolute inset-0">
-            <img
+            <Image
               src="/sobre.jpg"
               alt="Border Collie da Borders Vilas Boas"
-              className="h-full w-full object-cover [object-position:50%_25%]"
+              fill
+              className="object-cover [object-position:50%_25%]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
             />
           </ZoomReveal>
         </div>

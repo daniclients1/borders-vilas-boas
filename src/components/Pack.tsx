@@ -35,7 +35,7 @@ export function Pack() {
                 <span className="text-[0.66rem] font-semibold uppercase tracking-widest2 text-sage-200">
                   {dog.role} · {dog.coat}
                 </span>
-                <h3 className="mt-1 font-display text-3xl text-cream-50 drop-shadow">
+                <h3 className="mt-1 font-display text-2xl sm:text-3xl text-cream-50 drop-shadow">
                   {dog.name}
                 </h3>
                 <p className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-medium text-cream-100/90">

@@ -11,6 +11,13 @@ export const site = {
   description:
     "Canil familiar de Border Collies. Filhotes criados dentro de casa, com muito carinho, pedigree, saúde e socialização desde os primeiros dias.",
   location: "Florianópolis • SC",
+  address: {
+    street: "Rua João Januário da Silva, 6046",
+    neighborhood: "Bairro Ratones",
+    city: "Florianópolis — SC",
+    zip: "CEP 88052-200",
+    mapsQuery: "Rua+Jo%C3%A3o+Janu%C3%A1rio+da+Silva,+6046,+Ratones,+Florian%C3%B3polis,+SC,+88052-200",
+  },
   whatsapp: {
     number: "5547988934120",
     display: "(47) 98893-4120",

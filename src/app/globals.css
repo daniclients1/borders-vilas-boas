@@ -50,20 +50,7 @@
     @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest2 text-sage-600;
   }
 
-  /* Brilho do skeleton de carregamento — evita CLS quando as fotos chegarem. */
-  .shimmer::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.5),
-      transparent
-    );
-    transform: translateX(-100%);
-    animation: shimmer 1.8s infinite;
-  }
+
 }
 
 @layer utilities {

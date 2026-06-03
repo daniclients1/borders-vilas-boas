@@ -85,15 +85,21 @@ export function Contact() {
               </a>
 
               <div className="flex items-center gap-4 p-4">
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-sage-300">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-sage-300">
                   <MapPin className="h-5 w-5" />
                 </span>
                 <span>
                   <span className="block text-xs uppercase tracking-widest2 text-cream-100/60">
-                    Localização
+                    Endereço
                   </span>
                   <span className="font-semibold text-cream-50">
-                    {site.location}
+                    {site.address.street}
+                  </span>
+                  <span className="block text-sm text-cream-100/70">
+                    {site.address.neighborhood} — {site.address.city}
+                  </span>
+                  <span className="block text-sm text-cream-100/50">
+                    {site.address.zip}
                   </span>
                 </span>
               </div>
@@ -155,6 +161,21 @@ export function Contact() {
             </div>
           </Reveal>
         </div>
+
+        {/* Google Maps */}
+        <Reveal>
+          <div className="mt-14 overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-cream-50/10">
+            <iframe
+              title="Localização Borders Vilas Boas"
+              src={`https://maps.google.com/maps?q=${site.address.mapsQuery}&hl=pt-BR&z=15&output=embed`}
+              width="100%"
+              height="380"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block border-0"
+            />
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

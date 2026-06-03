@@ -25,6 +25,7 @@ export function Testimonials() {
   const [vw, setVw] = useState(1280);
   const reduce = useReducedMotion();
   const paused = useRef(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const onResize = () => setVw(window.innerWidth);
@@ -48,6 +49,19 @@ export function Testimonials() {
 
   const go = (dir: number) => setActive((a) => (a + dir + N) % N);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    paused.current = true;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) go(diff > 0 ? 1 : -1);
+    touchStartX.current = null;
+    paused.current = false;
+  };
+
   return (
     <Section id="depoimentos" className="overflow-hidden bg-cream-100">
       <Container>
@@ -63,6 +77,8 @@ export function Testimonials() {
         style={{ height: H + 24 }}
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         role="group"
         aria-roledescription="carrossel de depoimentos"
         aria-label="Depoimentos de famílias"

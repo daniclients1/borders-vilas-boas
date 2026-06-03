@@ -42,6 +42,7 @@ export function Hero() {
             loop
             muted
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover"
             aria-hidden="true"
             onError={(e) => {
@@ -76,7 +77,7 @@ export function Hero() {
         >
           <motion.h1
             variants={item}
-            className="font-sans text-3xl font-extrabold uppercase leading-[1.07] tracking-tight text-cream-50 [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-5xl lg:text-6xl"
+            className="font-display text-3xl font-black uppercase leading-[1.07] tracking-wide text-cream-50 [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-5xl lg:text-6xl"
           >
             Border Collies criados como parte da família
           </motion.h1>
