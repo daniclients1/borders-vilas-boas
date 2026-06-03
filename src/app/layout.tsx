@@ -67,7 +67,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: site.name,
   description: site.description,
-  image: "/logo.svg",
+  image: "/bordercollielogo.jpeg",
   telephone: `+${site.whatsapp.number}`,
   areaServed: "Brasil",
   address: {

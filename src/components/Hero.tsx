@@ -10,7 +10,7 @@ import { Photo } from "./ui/Photo";
  * (mp4 H.264 recomendado — compatível com todos os navegadores).
  * Formatos extras (webm/ogg) são opcionais para melhor compressão.
  */
-const VIDEO_SRC = "/VideoloopingCabe%C3%A7alho.mp4";
+const VIDEO_SRC = "/hero-loop.mp4";
 
 export function Hero() {
   const reduce = useReducedMotion();
