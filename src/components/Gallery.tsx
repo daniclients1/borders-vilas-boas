@@ -10,7 +10,7 @@ function MarqueeRow({
   size,
   reverse = false,
 }: {
-  tiles: typeof galleryTiles;
+  tiles: ReadonlyArray<(typeof galleryTiles)[number]>;
   size: "full" | "small";
   reverse?: boolean;
 }) {
